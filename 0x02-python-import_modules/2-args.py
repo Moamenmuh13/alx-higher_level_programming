@@ -11,6 +11,5 @@ elif arg_count == 1:
     print("1 arguments.")
 else:
     print("{} arguments:".format(arg_count))
-
 for i in range(arg_count):
     print("{}: {}".format(i + 1, sys.argv[i + 1]))
