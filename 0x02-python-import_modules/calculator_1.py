@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 def add(a, b):
     """My addition function
@@ -10,7 +9,7 @@ def add(a, b):
     Returns:
         The return value. a + b
     """
-    return (a + b)
+    return a + b
 
 
 def sub(a, b):
@@ -23,7 +22,7 @@ def sub(a, b):
     Returns:
         The return value. a - b
     """
-    return (a - b)
+    return a - b
 
 
 def mul(a, b):
@@ -36,7 +35,7 @@ def mul(a, b):
     Returns:
         The return value. a * b
     """
-    return (a * b)
+    return a * b
 
 
 def div(a, b):
