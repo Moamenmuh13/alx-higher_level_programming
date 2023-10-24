@@ -2,7 +2,7 @@
 """Define a class square"""
 
 
-class Sqaure:
+class Square:
     """
     This class defines a square by the size attribute.
     """
