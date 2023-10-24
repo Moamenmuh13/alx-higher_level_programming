@@ -11,8 +11,9 @@ class Square:
         """Initialize a new Square.
 
         Args:
-            size (int) : The size of the sqaure."""
-
+            size (int) : The size of the sqaure.
+            position (int, int): The position of the new square.
+        """
         self.__size = size
         self.__position = position
 
@@ -50,10 +51,9 @@ class Square:
         """Print the square with the # character."""
 
         if self.size == 0:
-            print("")
-            return
+            print()
         else:
-            for _ in range(self.__position[1]):
+            for i in range(self.__position[1]):
                 print()
-            for _ in range(self.__size):
-                print(" " * self.__position[0] + "#" * self.__size + "$")
+            for i in range(self.__size):
+                print("_" * self.__position[0] + "#" * self.__size + "$")
