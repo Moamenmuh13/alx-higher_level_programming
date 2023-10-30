@@ -14,8 +14,8 @@ class Rectangle:
             width (int) : The width of the Rectangle.
             height (int) : The height of the Rectangle."""
 
-        self.width = 0
-        self.heigth = 0
+        self.width = width
+        self.heigth = height
 
     @property
     def width(self):
@@ -28,7 +28,7 @@ class Rectangle:
             raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
-        self.__size = value
+        self.__width = value
 
     @property
     def height(self):
@@ -41,4 +41,4 @@ class Rectangle:
             raise TypeError("height must be an integer")
         elif value < 0:
             raise ValueError("height must be >= 0")
-        self.__size = value
+        self.__height = value
