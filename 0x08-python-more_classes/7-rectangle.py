@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle."""
+"""Defines a Rectangle class."""
 
 
 class Rectangle:
     """Represent a rectangle.
 
     Attributes:
-         number_of_instances (int): The number of Rectangle instances.
-         print_symbol (any): The symbol used for string representation.
+        number_of_instances (int): The number of Rectangle instances.
+        print_symbol (any): The symbol used for string representation.
     """
 
     number_of_instances = 0
@@ -20,13 +20,12 @@ class Rectangle:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
-        type(self).number_of_instances += 1
 
     @property
     def width(self):
-        """Get/set the width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -39,7 +38,6 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/set the height of the rectangle."""
         return self.__height
 
     @height.setter
@@ -61,16 +59,15 @@ class Rectangle:
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
+
         tmp_rect = []
         for i in range(self.__height):
-            [tmp_rect.append(str(self.print_symbol)) 
-             for j in range(self.__width)]
+            [tmp_rect.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
                 tmp_rect.append("\n")
         return "".join(tmp_rect)
 
     def __repr__(self):
-        """Return the string representation of the Rectangle."""
         tmp_rect = "Rectangle(" + str(self.__width)
         tmp_rect += ", " + str(self.__height) + ")"
         return tmp_rect
