@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle."""
+"""Defines a Rectangle class."""
 
 
 class Rectangle:
     """Represent a rectangle.
 
     Attributes:
-         number_of_instances (int): The number of Rectangle instances.
-         print_symbol (any): The symbol used for string representation.
+        number_of_instances (int): The number of Rectangle instances.
+        print_symbol (any): The symbol used for string representation.
     """
 
     number_of_instances = 0
@@ -53,8 +53,8 @@ class Rectangle:
 
     def perimeter(self):
         if self.__width == 0 or self.__height == 0:
-            return (0)
-        return ((self.__width * 2) + (self.__height * 2))
+            return 0
+        return (self.__width * 2) + (self.__height * 2)
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
@@ -63,25 +63,17 @@ class Rectangle:
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
         if rect_1.area() >= rect_2.area():
-            return (rect_1)
-        return (rect_2)
+            return rect_1
+        return rect_2
 
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
-            return ("")
-
-        rect = []
-        for i in range(self.__height):
-            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
-            if i != self.__height - 1:
-                rect.append("\n")
-        return ("".join(rect))
+            return ""
+        return "\n".join([str(self.print_symbol) * self.__width] * self.__height)
 
     def __repr__(self):
-        rect = "Rectangle(" + str(self.__width)
-        rect += ", " + str(self.__height) + ")"
-        return (rect)
+        return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        type(self).number_of_instances -= 1
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1  # Decrement the class attribute
