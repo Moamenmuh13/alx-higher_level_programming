@@ -20,13 +20,12 @@ class Rectangle:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
-        type(self).number_of_instances += 1
 
     @property
     def width(self):
-        """Get/set the width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -39,7 +38,6 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/set the height of the rectangle."""
         return self.__height
 
     @height.setter
@@ -55,35 +53,35 @@ class Rectangle:
 
     def perimeter(self):
         if self.__width == 0 or self.__height == 0:
-            return 0
-        return (self.__width * 2) + (self.__height * 2)
+            return (0)
+        return ((self.__width * 2) + (self.__height * 2))
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() >= rect_2.area():
+            return (rect_1)
+        return (rect_2)
 
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
-            return ""
-        tmp_rect = []
+            return ("")
+
+        rect = []
         for i in range(self.__height):
-            [tmp_rect.append(str(self.print_symbol)) for j in range(self.__width)]
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
-                tmp_rect.append("\n")
-        return "".join(tmp_rect)
+                rect.append("\n")
+        return ("".join(rect))
 
     def __repr__(self):
-        """Return the string representation of the Rectangle."""
-        tmp_rect = "Rectangle(" + str(self.__width)
-        tmp_rect += ", " + str(self.__height) + ")"
-        return tmp_rect
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
 
     def __del__(self):
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
-
-    def bigger_or_equal(rect_1, rect_2):
-        if not isinstance(rect_1, Rectangle):
-            TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
-            TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area() >= rect_2.area():
-            return rect_1
-
-        return rect_2

@@ -59,19 +59,12 @@ class Rectangle:
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
-
-        tmp_rect = []
-        for i in range(self.__height):
-            [tmp_rect.append(str(self.print_symbol)) for j in range(self.__width)]
-            if i != self.__height - 1:
-                tmp_rect.append("\n")
-        return "".join(tmp_rect)
+        return "\n".join([str(self.print_symbol)
+                          * self.__width] * self.__height)
 
     def __repr__(self):
-        tmp_rect = "Rectangle(" + str(self.__width)
-        tmp_rect += ", " + str(self.__height) + ")"
-        return tmp_rect
+        return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        type(self).number_of_instances -= 1
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1  # Decrement the class attribute
