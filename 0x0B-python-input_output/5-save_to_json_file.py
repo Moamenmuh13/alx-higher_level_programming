@@ -9,7 +9,8 @@ def save_to_json_file(my_obj, filename):
 
     Args:
         my_obj (Any): The Python object to be serialized to JSON.
-        filename (str): The name of the file to save the JSON representation to.
+        filename (str): The name of the file to save
+        the JSON representation to.
     """
-    with open(filename, "w") as f:
-        json.dump(my_obj, f)
+    with open(filename, "w") as file:
+        json.dump(my_obj, file)
