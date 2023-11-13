@@ -4,6 +4,21 @@ from models.base import Base
 
 
 class Rectangle(Base):
+    """Initialize a new Rectangle.
+
+    Args:
+        width (int): The width of the new Rectangle.
+        height (int): The height of the new Rectangle.
+        x (int): The x coordinate of the new Rectangle.
+        y (int): The y coordinate of the new Rectangle.
+        id (int): The identity of the new Rectangle.
+    Raises:
+        TypeError: If either of width or height is not an int.
+        ValueError: If either of width or height <= 0.
+        TypeError: If either of x or y is not an int.
+        ValueError: If either of x or y < 0.
+    """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
         self.__width = width
@@ -16,6 +31,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """Set/get the width of the Rectangle."""
         return self.__width
 
     @width.setter
@@ -29,6 +45,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """Set/get the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -42,6 +59,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """Set/get the x coordinate of the Rectangle."""
         return self.__x
 
     @x.setter
@@ -54,6 +72,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """Set/get the x coordinate of the Rectangle."""
         return self.__y
 
     @y.setter
@@ -65,9 +84,11 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """Return the area of the Rectangle."""
         return self.__width * self.__height
 
     def display(self):
+        """Print the Rectangle using the `#` character."""
         for _ in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
 
@@ -78,7 +99,17 @@ class Rectangle(Base):
         )
 
     def update(self, *args, **kwargs):
-        """Assigns an argument to each attribute."""
+        """Update the Rectangle.
+
+        Args:
+            *args (ints): New attribute values.
+                - 1st argument represents id attribute
+                - 2nd argument represents width attribute
+                - 3rd argument represent height attribute
+                - 4th argument represents x attribute
+                - 5th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes.
+        """
         if args:
             attributes = ["id", "width", "height", "x", "y"]
             for i in range(len(args)):
